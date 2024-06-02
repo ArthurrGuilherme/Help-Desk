@@ -1,7 +1,5 @@
 <?php
-
 include('./log/protect.php');
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,6 +8,8 @@ include('./log/protect.php');
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Painel</title>
+    <!--css-->
+    <!--css-->
 </head>
 <body>
     Bem vindo ao Painel, <?php echo $_SESSION['nome']; ?>.

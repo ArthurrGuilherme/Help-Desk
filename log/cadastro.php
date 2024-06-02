@@ -1,43 +1,29 @@
 <?php
 include('conexao.php');
 
-$error_message = ""; // Inicializa a variável $error_message
+if(isset($_POST['email']) || isset($_POST['senha']) || isset($_POST['nome'])) {
 
-if(isset($_POST['email']) || isset($_POST['senha'])) {
-
-    if(strlen($_POST['email']) == 0) {
+    if(strlen($_POST['nome']) == 0) {
+        $error_message = "Preencha seu nome";
+    } else if(strlen($_POST['email']) == 0) {
         $error_message = "Preencha seu e-mail";
-    } else if (strlen($_POST['senha']) == 0) {
+    } else if(strlen($_POST['senha']) == 0) {
         $error_message = "Preencha sua senha";
     } else {
 
+        $nome = $mysqli->real_escape_string($_POST['nome']);
         $email = $mysqli->real_escape_string($_POST['email']);
         $senha = $mysqli->real_escape_string($_POST['senha']);
 
-        $sql_code = "SELECT * FROM usuarios WHERE email = '$email' AND senha = '$senha'";
+        $sql_code = "INSERT INTO usuarios (nome, email, senha) VALUES ('$nome', '$email', '$senha')";
         $sql_query = $mysqli->query($sql_code) or die("Falha na execução do código SQL: " . $mysqli->error);
 
-        $quantidade = $sql_query->num_rows;
-
-        if($quantidade == 1) {
-            
-            $usuario = $sql_query->fetch_assoc();
-
-            if(!isset($_SESSION)) {
-                session_start();
-            }
-
-            $_SESSION['id'] = $usuario['id'];
-            $_SESSION['nome'] = $usuario['nome'];
-
-            header("Location: ../painel.php");
-
+        if($sql_query) {
+            $success_message = "Usuário cadastrado com sucesso!";
         } else {
-            $error_message = "Falha ao logar! E-mail ou senha incorretos";
+            $error_message = "Falha ao cadastrar usuário!";
         }
-
     }
-
 }
 ?>
 <!DOCTYPE html>
@@ -46,7 +32,7 @@ if(isset($_POST['email']) || isset($_POST['senha'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login | Help</title>
+    <title>Cadastro | Help</title>
     <!--Css-->
     <link rel="stylesheet" href="../css/reset.css">
     <!--Log-->
@@ -55,29 +41,37 @@ if(isset($_POST['email']) || isset($_POST['senha'])) {
     <!--Css-->
 </head>
 <body>
-    <!--Formulario de login-->
+    <!--Formulario de cadastro-->
     <section class="ContainerLogin">
         <article>
-            <h1>Suporte T.I</h1>
+            <h1>Cadastro</h1>
             <br>
             <form action="" method="POST">
                 <div>
-                    <input placeholder="Digite seu e-mail:" type="text" name="email">
+                    <input placeholder="Digite seu nome:" type="text" name="nome">
+                </div>
+                <div>
+                    <input placeholder="Digite seu e-mail:" type="email" name="email">
                 </div>
                 <div>
                     <input placeholder="Digite sua senha:" type="password" name="senha">
                 </div>
-                <?php if ($error_message != ""): ?>
+                <?php if (isset($error_message) && $error_message != ""): ?>
                     <div style="color: red;">
                         <?php echo $error_message; ?>
                     </div>
                 <?php endif; ?>
+                <?php if (isset($success_message) && $success_message != ""): ?>
+                    <div style="color: green;">
+                        <?php echo $success_message; ?>
+                    </div>
+                <?php endif; ?>
                 <div>
-                    <button type="submit">Entrar</button>
+                    <button type="submit">Cadastrar</button>
                 </div>
             </form>
         </article>
     </section>
-    <!--Formulario de login-->    
+    <!--Formulario de cadastro-->    
 </body>
 </html>
