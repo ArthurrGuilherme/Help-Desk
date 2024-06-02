@@ -1,10 +1,10 @@
 <?php
 include('conexao.php');
 
-$error_message = ""; // Inicializa a variável $error_message
+$error_message = ""; // Vareavel para erro
 
 if(isset($_POST['email']) || isset($_POST['senha'])) {
-
+    // Campos de falha para login
     if(strlen($_POST['email']) == 0) {
         $error_message = "Preencha seu e-mail";
     } else if (strlen($_POST['senha']) == 0) {
@@ -47,6 +47,9 @@ if(isset($_POST['email']) || isset($_POST['senha'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login | Help</title>
+    <!--Icon-->
+        <link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAArElEQVR4nO2XQQrAMAgE/f+np6deAiWQVKNmB3IqFCa7UmsmekHQcae8CEE3hbdQeRGCz4tEslTKPZF2IgTNBBL5wOum0iSyi0RWUSITVK1VVK0JqtYq7auFdi3LsTR6gUSS/7O/zJ7fI0LQbLjPTHkRkpwRiZyCvxOx20VwmgUk4lS32bvwTKSNSCRIZOD0F52/d6yyIhyejZHtJLKAkkgC1Yeb3Wq3ERF2mAcEA+E7Kou21QAAAABJRU5ErkJggg==" type="image/x-icon">
+    <!--Icon-->
     <!--Css-->
     <link rel="stylesheet" href="../css/reset.css">
     <!--Log-->
@@ -60,22 +63,33 @@ if(isset($_POST['email']) || isset($_POST['senha'])) {
         <article>
             <h1>Suporte T.I</h1>
             <br>
-            <form action="" method="POST">
-                <div>
-                    <input placeholder="Digite seu e-mail:" type="text" name="email">
-                </div>
-                <div>
-                    <input placeholder="Digite sua senha:" type="password" name="senha">
-                </div>
-                <?php if ($error_message != ""): ?>
-                    <div style="color: red;">
-                        <?php echo $error_message; ?>
-                    </div>
-                <?php endif; ?>
-                <div>
-                    <button type="submit">Entrar</button>
-                </div>
-            </form>
+            <!--login-->
+                <form action="" method="POST">
+                    <!--Email-->
+                        <div>
+                            <input placeholder="Digite seu e-mail:" type="text" name="email">
+                        </div>
+                    <!--Email-->
+                    <!--Senha-->
+                        <div>
+                            <input placeholder="Digite sua senha:" type="password" name="senha">
+                        </div>
+                    <!--Senha-->
+                    <!--Erros-->
+                        <?php if ($error_message != ""): ?>
+                            <div style="color: red;">
+                                <?php echo $error_message; ?>
+                            </div>
+                        <?php endif; ?>
+                    <!--Erros-->
+                    <!--Botao de login-->
+                        <div>
+                            <button type="submit">Entrar</button>
+                            <a href="./cadastro.php">Cadastro</a>
+                        </div>
+                    <!--Botao de login-->
+                </form>
+            <!--login-->
         </article>
     </section>
     <!--Formulario de login-->    

@@ -36,6 +36,18 @@ button {
     font-weight: 700;
     transition: all 5ms;
 }
+a {
+    cursor: pointer;
+    padding: .5rem 1.5rem;
+    border-radius: 15px;
+    font-weight: 700;
+    transition: all 5ms;
+    background: #f1eded;
+    color: #000;
+}
+a:hover {
+    background: #0460e1;
+}
 button:hover {
     background: #04e10c;
 }
