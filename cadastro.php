@@ -44,17 +44,17 @@ if (isset($_POST['email']) || isset($_POST['senha']) || isset($_POST['nome'])) {
             <form class="flex flex-col gap-y-3.5" action="" method="POST">
                 <!--nome-->
                 <div>
-                    <input class="border-solid border-2 border-black rounded-2xl px-6 py-1" placeholder="Digite seu nome:" type="text" name="nome">
+                    <input class="border-solid border-2 border-black rounded-2xl px-8 py-1" placeholder="Digite seu nome:" type="text" name="nome">
                 </div>
                 <!--nome-->
                 <!--email-->
                 <div>
-                    <input class="border-solid border-2 border-black rounded-2xl px-6 py-1" placeholder="Digite seu e-mail:" type="email" name="email">
+                    <input class="border-solid border-2 border-black rounded-2xl px-8 py-1" placeholder="Digite seu e-mail:" type="email" name="email">
                 </div>
                 <!--email-->
                 <!--senha-->
                 <div>
-                    <input id="senha" class="border-solid border-2 border-black rounded-2xl px-6 py-1" placeholder="Digite sua senha:" type="password" name="senha">
+                    <input id="senha" class="border-solid border-2 border-black rounded-2xl px-4 py-1" placeholder="Digite sua senha:" type="password" name="senha">
                     <button type="button" id="toggleSenha" class="absolute right-2 top-1/2 transform -translate-y-1/2 text-sm text-blue-500" onclick="togglePasswordVisibility()">🤫</button>
                 </div>
                 <!--senha-->

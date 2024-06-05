@@ -66,7 +66,9 @@ if (isset($_POST['email']) || isset($_POST['senha'])) {
                     <!--Botao de login-->
                     <div class="flex justify-center items-center gap-2">
                         <button class="font-medium bg-slate-300 rounded-2xl px-7 py-1 hover:bg-green-600" type="submit">Entrar</button>
-                        <a class="font-medium bg-slate-300 rounded-2xl px-6 py-1 hover:bg-rose-600" href="./cadastro.php">Cadastro</a>
+                    </div>
+                    <div>
+                        <p>Ainda não tem cadastro? Aperte <a style="color: #0000FF;" href="./cadastro.php">aqui.</a></p>
                     </div>
                     <!--Botao de login-->
                 </form>
