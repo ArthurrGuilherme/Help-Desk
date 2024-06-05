@@ -33,35 +33,8 @@ if (isset($_POST['email']) || isset($_POST['senha']) || isset($_POST['nome'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro | Help</title>
-    <!--Icon-->
-    <link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAArElEQVR4nO2XQQrAMAgE/f+np6deAiWQVKNmB3IqFCa7UmsmekHQcae8CEE3hbdQeRGCz4tEslTKPZF2IgTNBBL5wOum0iSyi0RWUSITVK1VVK0JqtYq7auFdi3LsTR6gUSS/7O/zJ7fI0LQbLjPTHkRkpwRiZyCvxOx20VwmgUk4lS32bvwTKSNSCRIZOD0F52/d6yyIhyejZHtJLKAkkgC1Yeb3Wq3ERF2mAcEA+E7Kou21QAAAABJRU5ErkJggg==" type="image/x-icon">
-    <!--Icon-->
-    <!--Css-->
-    <link rel="stylesheet" href="../css/reset.css">
-    <!--Log-->
-    <link rel="stylesheet" href="./css/main.css">
-    <!--Log-->
-    <!--Css-->
 </head>
 <body>
-    <?php if (isset($error_message) && $error_message != ""): ?>
-        <script>
-            swal ({
-                title: "Algo deu errado🤔",
-                text: "<?php echo $error_message; ?>",
-                icon: "error",
-                });
-        </script>
-    <?php endif; ?>
-    <?php if (isset($success_message) && $success_message != ""): ?>
-        <script>
-            swal ({
-                title: "Usuário cadastrado😁",
-                text: "<?php echo $success_message; ?>",
-                icon: "success",
-                });
-        </script>
-    <?php endif; ?>
     <!--Formulario de cadastro-->
     <section class="h-screen flex justify-center items-center">
         <article class="flex justify-center items-center flex-col text-center shadow-2xl p-8 rounded-2xl">
@@ -81,7 +54,8 @@ if (isset($_POST['email']) || isset($_POST['senha']) || isset($_POST['nome'])) {
                 <!--email-->
                 <!--senha-->
                 <div>
-                    <input class="border-solid border-2 border-black rounded-2xl px-6 py-1" placeholder="Digite sua senha:" type="password" name="senha">
+                    <input id="senha" class="border-solid border-2 border-black rounded-2xl px-6 py-1" placeholder="Digite sua senha:" type="password" name="senha">
+                    <button type="button" id="toggleSenha" class="absolute right-2 top-1/2 transform -translate-y-1/2 text-sm text-blue-500" onclick="togglePasswordVisibility()">🤫</button>
                 </div>
                 <!--senha-->
                 <!--Botão de cadastro-->
@@ -96,4 +70,29 @@ if (isset($_POST['email']) || isset($_POST['senha']) || isset($_POST['nome'])) {
     </section>
     <!--Formulario de cadastro-->    
 </body>
+    <!--Erros-->
+        <?php if (isset($error_message) && $error_message != ""): ?>
+            <script>
+                swal ({
+                    title: "Algo deu errado🤔",
+                    text: "<?php echo $error_message; ?>",
+                    icon: "error",
+                    });
+            </script>
+        <?php endif; ?>
+    <!--Erros-->
+    <!--Sucesso-->
+        <?php if (isset($success_message) && $success_message != ""): ?>
+            <script>
+                swal ({
+                    title: "Usuário cadastrado😁",
+                    text: "<?php echo $success_message; ?>",
+                    icon: "success",
+                    });
+            </script>
+        <?php endif; ?>
+    <!--Sucesso-->
+    <!--Senha-->
+        <script src="./log/js/passaword.js"></script>
+    <!--Senha-->
 </html>

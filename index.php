@@ -43,50 +43,50 @@ if (isset($_POST['email']) || isset($_POST['senha'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login | Help</title>
-    <!--Icon-->
-        <link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAArElEQVR4nO2XQQrAMAgE/f+np6deAiWQVKNmB3IqFCa7UmsmekHQcae8CEE3hbdQeRGCz4tEslTKPZF2IgTNBBL5wOum0iSyi0RWUSITVK1VVK0JqtYq7auFdi3LsTR6gUSS/7O/zJ7fI0LQbLjPTHkRkpwRiZyCvxOx20VwmgUk4lS32bvwTKSNSCRIZOD0F52/d6yyIhyejZHtJLKAkkgC1Yeb3Wq3ERF2mAcEA+E7Kou21QAAAABJRU5ErkJggg==" type="image/x-icon">
-    <!--Icon-->
-    <!--Css-->
-        <link rel="stylesheet" href="../css/reset.css">
-    <!--Css-->
 </head>
-<body >
-    <?php if ($error_message != ""): ?>
-        <script>
-            swal ({
-                title: "Algo deu errado🤔",
-                text: "<?php echo $error_message; ?>",
-                icon: "error",
-                });
-        </script>
-    <?php endif; ?>
+<body>
     <!--Formulario de login-->
-    <section class="h-screen flex justify-center items-center">
-        <article class="flex justify-center items-center flex-col shadow-2xl text-center p-8 rounded-2xl">
-            <h1 class="text-2xl font-medium">Suporte T.I</h1>
-            <br>
-            <!--login-->
-            <form class="flex flex-col gap-y-3.5" action="" method="POST">
-                <!--Email-->
-                <div>
-                    <input class="border-solid border-2 border-black rounded-2xl px-6 py-1" placeholder="Digite seu e-mail:" type="text" name="email">
-                </div>
-                <!--Email-->
-                <!--Senha-->
-                <div>
-                    <input class="border-solid border-2 border-black rounded-2xl px-7 py-1" placeholder="Digite sua senha:" type="password" name="senha">
-                </div>
-                <!--Senha-->
-                <!--Botao de login-->
-                <div class="flex justify-center items-center gap-2">
-                    <button class="font-medium bg-slate-300 rounded-2xl px-7 py-1 hover:bg-green-600" type="submit">Entrar</button>
-                    <a class="font-medium bg-slate-300 rounded-2xl px-6 py-1 hover:bg-rose-600" href="./cadastro.php">Cadastro</a>
-                </div>
-                <!--Botao de login-->
-            </form>
-            <!--login-->
-        </article>
-    </section>
+        <section class="h-screen flex justify-center items-center">
+            <article class="flex justify-center items-center flex-col shadow-2xl text-center p-8 rounded-2xl">
+                <h1 class="text-2xl font-medium">Suporte T.I</h1>
+                <br>
+                <!--login-->
+                <form class="flex flex-col gap-y-3.5" action="" method="POST">
+                    <!--Email-->
+                    <div>
+                        <input class="border-solid border-2 border-black rounded-2xl px-8 py-1" placeholder="Digite seu e-mail:" type="text" name="email">
+                    </div>
+                    <!--Email-->
+                    <!--Senha-->
+                    <div>
+                        <input id="senha" class="border-solid border-2 border-black rounded-2xl px-5 py-1" placeholder="Digite sua senha:" type="password" name="senha">
+                        <button type="button" id="toggleSenha" class="absolute right-2 top-1/2 transform -translate-y-1/2 text-sm text-blue-500" onclick="togglePasswordVisibility()">🤫</button>
+                    </div>
+                    <!--Senha-->
+                    <!--Botao de login-->
+                    <div class="flex justify-center items-center gap-2">
+                        <button class="font-medium bg-slate-300 rounded-2xl px-7 py-1 hover:bg-green-600" type="submit">Entrar</button>
+                        <a class="font-medium bg-slate-300 rounded-2xl px-6 py-1 hover:bg-rose-600" href="./cadastro.php">Cadastro</a>
+                    </div>
+                    <!--Botao de login-->
+                </form>
+                <!--login-->
+            </article>
+        </section>
     <!--Formulario de login-->
 </body>
+    <!--Erros-->
+        <?php if ($error_message != ""): ?>
+            <script>
+                swal ({
+                    title: "Algo deu errado🤔",
+                    text: "<?php echo $error_message; ?>",
+                    icon: "error",
+                    });
+            </script>
+        <?php endif; ?>
+    <!--Erros-->
+    <!--Senha-->
+        <script src="./log/js/passaword.js"></script>
+    <!--Senha-->
 </html>
